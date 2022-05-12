@@ -1,4 +1,2 @@
-CKA - https://github.com/kodekloudhub/certified-kubernetes-administrator-course
-
-
-Slack - https://join.slack.com/t/kodekloud/shared_invite/zt-1881nn91v-R4hGiyeHENiVONxqzikAPg
+# kubectl Cheat sheet 
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/

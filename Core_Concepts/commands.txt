@@ -1,0 +1,8 @@
+# create a pod from pod defintion file.
+kubectl apply -f pod.yaml
+
+# view details about a pod
+kubectl describe pod <pod_name> 
+
+# delete pod
+kubectl delete pod <pod_name> --now
