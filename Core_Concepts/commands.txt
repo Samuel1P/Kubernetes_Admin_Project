@@ -1,8 +1,51 @@
 # create a pod from pod defintion file.
 kubectl apply -f pod.yaml
 
+#also this works
+kubectl create -f <mainfest>.yaml
+
+# list pods 
+kubectl get pods
+
 # view details about a pod
 kubectl describe pod <pod_name> 
 
 # delete pod
 kubectl delete pod <pod_name> --now
+
+# get replicasets
+kubectl get replicasets
+
+# view replicaset details
+kubectl describe rs/<rs-entity-name>
+
+# delete replicaset
+kubectl delete rs <rs-entity-name>
+
+# scaling running replicasets
+kubectl scale --replicas <new_count> rs/<rs-entity-name>
+
+# scaling replicasets in file
+kubectl scale --replicas <new_count> -f <replicaset_def.yaml>
+
+# mainfest of replicaset
+kubectl get rs <rs-entity-name> -o yaml
+
+
+# get mainfest of any k8s object
+kubectl -n <namespace> get <resource type> <resource Name> -o yaml.
+
+# replcae a k8s object
+kubectl replace -f <updated-entity-file>.
+# or kubectl edit replicaset
+
+
+# creating entity on the fly in cli
+#deployment
+kubectl create <deployment_entity_name> --image ngnix:1.19 --replicas 3 -o yaml > manifest.yaml
+
+# to dry run 
+--dry_run=server|client|none
+
+# update the deployment
+kubectl set image <deployment_entity_name> nginx=nginx:1.21

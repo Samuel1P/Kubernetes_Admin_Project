@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-app
+  labels:
+    tier: frontend
+    env: stage
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      name: busybox-app
+      tier: frontend
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox
