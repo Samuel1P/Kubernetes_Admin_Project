@@ -40,12 +40,5 @@ kubectl replace -f <updated-entity-file>.
 # or kubectl edit replicaset
 
 
-# creating entity on the fly in cli
-#deployment
-kubectl create <deployment_entity_name> --image ngnix:1.19 --replicas 3 -o yaml > manifest.yaml
-
-# to dry run 
---dry_run=server|client|none
-
-# update the deployment
-kubectl set image <deployment_entity_name> nginx=nginx:1.21
+# services
+kubectl get svc
