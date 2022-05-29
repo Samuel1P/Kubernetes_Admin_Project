@@ -4,6 +4,9 @@ kubectl apply -f pod.yaml
 #also this works
 kubectl create -f <mainfest>.yaml
 
+#create pod with container port
+kubectl run redis --image redis --port 80   
+
 # list pods 
 kubectl get pods
 
@@ -42,3 +45,21 @@ kubectl replace -f <updated-entity-file>.
 
 # services
 kubectl get svc
+
+# get all namespaces
+kubectl get namespaces # short hand ns 
+
+# create namespaces
+kubectl create namespace <namespace_name>
+
+# get entity in particular namespace
+kubectl get pods --namespace="<namespace_name>" # short hand -n
+
+# get current context (unrelated to namespace)
+kubectl config current-context
+
+# switch namespace context
+kubectl set context $(kubectl config current-context) --namespace=<namespace_name>
+
+# list entity in all namespaces
+kubectl get pod --all-namespaces # short hand -A
