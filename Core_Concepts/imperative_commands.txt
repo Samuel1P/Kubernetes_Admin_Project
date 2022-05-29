@@ -1,12 +1,45 @@
+# create an object
+kubectl create -f <manifest.yaml>
 
+# replace an object - obejct needs to be present to begin with.
+kubectl replace -f <manifest.yaml>
+
+# replace an object
+kubectl delete -f <manifest.yaml>
+
+# creating pod using run command
+kubectl run redis --image=redis -n="<namespace>"
+
+# add labels to pods
+kubectl run redis --image=redis --labels="key=value"
 
 
 # creating entity on the fly in cli
-#deployment
-kubectl create <deployment_entity_name> --image ngnix:1.19 --replicas 3 -o yaml > manifest.yaml
+# deployment
+kubectl create deployment <deployment_entity_name> --image ngnix:1.19 --replicas 3 -o yaml > manifest.yaml
 
 # to dry run 
 --dry_run=server|client|none
 
-# update the deployment
+# create a ClusterIP service and expose to pod at port 8080 (this will use the pods labels as selectors.)
+kubectl expose pod <pod-name>> --port=8080 --name <service-name>
+
+# alternative approach : create a clusterip service but this assumes selectors as "app:redis"
+kubectl create service clusterip redis --tcp=6379:6379
+
+# create a NodePort service and expose to pod at port 80 of pod and 30080 on the nodes. Pod labels are used as selectors. We cannot specify Node Port number.
+kubectl expose pod nginx --type=NodePort --port=80 --name=nginx-service
+
+# alternative approach : create a NodePort service. This will not use the pod labels as selectors. We can specify Node Port number.
+kubectl create service nodeport nginx --tcp=80:80 --node-port=30080
+
+
+# edit a deployment - This opens a yaml defintion file but it has more details - not the same as created one.
+# not a best practise since state is not maitained in any local file.
+kubectl edit deployment nginx
+
+# Scale the replica count of deployment
+kubectl scale deployment nginx --replicas=5
+
+# update the deployment image
 kubectl set image <deployment_entity_name> nginx=nginx:1.21
