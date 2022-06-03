@@ -1,0 +1,17 @@
+# nodes in env
+kubectl get nodes
+
+# replace pods forcefully
+kubectl replace --force -f <manifest>.yaml
+
+# watch pods status
+kubectl get pods --watch
+
+# binding non scheduled pod to a node
+curl --header "Content:application/json" --request POST --data '{"apiVersion":"v1","kind":"Binding","metadata":{"name":"nginx"},"target":{"apiVersion":"v1","kind":"Node","name":"node01"}}' https://$SERVER/api/v1/namespace/defaualt/pods/$PODNAME/binding
+
+
+# labels to filter obejcts - use flag --no-header to use wc -l
+k get pods --selector key=value
+k get pods -l key=value
+k get pods -l env=prod,bu=finance,tier=frontend

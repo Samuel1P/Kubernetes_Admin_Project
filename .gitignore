@@ -21,3 +21,6 @@ db_dir/
 # pycharm
 .idea
 /**/.idea/*
+
+# course materials
+Course_Material
