@@ -1,5 +1,6 @@
 # nodes in env
 kubectl get nodes
+kubectl describe nodes node01
 
 # replace pods forcefully
 kubectl replace --force -f <manifest>.yaml
@@ -15,3 +16,10 @@ curl --header "Content:application/json" --request POST --data '{"apiVersion":"v
 k get pods --selector key=value
 k get pods -l key=value
 k get pods -l env=prod,bu=finance,tier=frontend
+
+
+# Taint a node
+kubectl taint nodes node01 spray=mortein:NoSchedule
+
+# Remove a taint
+kubectl taint nodes controlplane node-role.kubernetes.io/master:NoSchedule-
