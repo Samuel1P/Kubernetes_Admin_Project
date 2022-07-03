@@ -4,6 +4,8 @@ kubectl create -f <manifest.yaml>
 # replace an object - obejct needs to be present to begin with.
 kubectl replace -f <manifest.yaml>
 
+kubectl replace --force -f <manifest.yaml>  (try this --force flag if the replace command is failing)
+
 # replace an object
 kubectl delete -f <manifest.yaml>
 

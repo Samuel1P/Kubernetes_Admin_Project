@@ -23,3 +23,7 @@ kubectl taint nodes node01 spray=mortein:NoSchedule
 
 # Remove a taint
 kubectl taint nodes controlplane node-role.kubernetes.io/master:NoSchedule-
+
+
+# Label a node for node affinity
+kubectl label nodes <node01> <size>=<large>

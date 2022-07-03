@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  app: hungry-app
+  tier: backend
+spec:
+  containers:
+    - name: redis-pod
+      image: redis
+      resources:
+        requests:
+          memory: "1G"
+          cpu: "2"
+        limits:
+          memory: "2G"
+          cpu: "4"
