@@ -1,0 +1,19 @@
+
+# k8s metrics server
+git clone https://github.com/kodekloudhub/kubernetes-metrics-server.git
+
+# deploy metrics server
+kubectl create -f .
+
+# kubectl cpu, memory stats
+kubectl top node
+kubectl top pods
+
+# listing logs:
+kubectl logs -f <pod_name>
+kubectl logs -f <pod_name> 
+kubectl logs -f -c <container_name> <pod_name>
+
+
+# List logs from last 20 lines
+kubectl logs --tail=20 -f container-name

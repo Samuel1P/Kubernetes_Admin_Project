@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        name: elasticsearch 
+        name: elasticsearch
     spec:
       containers:
         - name: elasticsearch
