@@ -1,0 +1,16 @@
+
+# imperatively update the deployment image
+# get the container_name by describing the deployment
+kubectl set image deployment/<deployment_entity_name> <container_name>=nginx:1.21
+
+# imperatively edit deployment
+k edit deployment <deployment_entity_name>
+
+# roll out status
+kubectl rollout status deployment/deployment_entity_name 
+
+# roll out history
+kubectl rollout history deployment/deployment_entity_name 
+
+# roll out revert
+kubectl rollout undo deployment/deployment_entity_name 

@@ -63,3 +63,10 @@ kubectl set context $(kubectl config current-context) --namespace=<namespace_nam
 
 # list entity in all namespaces
 kubectl get pod --all-namespaces # short hand -A
+
+
+# deployments
+kubectl create -f <deployment_manifest>.yaml
+
+kubectl get deployments
+kubectl apply -f <deployment_manifest>.yaml
