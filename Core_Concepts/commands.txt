@@ -31,11 +31,11 @@ kubectl scale --replicas <new_count> rs/<rs-entity-name>
 # scaling replicasets in file
 kubectl scale --replicas <new_count> -f <replicaset_def.yaml>
 
-# mainfest of replicaset
+# manifest of replicaset
 kubectl get rs <rs-entity-name> -o yaml
 
 
-# get mainfest of any k8s object
+# get manifest of any k8s object
 kubectl -n <namespace> get <resource type> <resource Name> -o yaml.
 
 # replcae a k8s object

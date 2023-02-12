@@ -1,0 +1,16 @@
+
+
+# run a ubuntu container that will die immediately
+docker run ubuntu
+
+# run a app from image and forward port
+docker run -p 8000:8000 rest-api-flask-python
+
+# run app in detached mode and forward port
+docker run -d -p 80:8080 swaggerapi/swagger-editor
+
+
+# get cli access to container
+# Press Ctrl-P, followed by Ctrl-Q, to detach from your connection.
+docker exec -it interesting_hawking bash
+
