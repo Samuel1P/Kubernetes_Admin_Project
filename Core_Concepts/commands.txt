@@ -16,6 +16,13 @@ kubectl describe pod <pod_name>
 # delete pod
 kubectl delete pod <pod_name> --now
 
+# open bash of pod and get terminal access
+kubectl exec -it -n <namespace> <pod-name> -- /bin/bash 
+
+# run command in the pods from outside
+kubectl exec -it <pod_name> -- /bin/bash -c "date"
+kubectl exec -it <pod_name> -- date
+
 # get replicasets
 kubectl get replicasets
 

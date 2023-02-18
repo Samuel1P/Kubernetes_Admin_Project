@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-var-pod
+spec:
+  containers:
+    - name: env-var-cont
+      image: ubuntu
+      env:
+        - name: HOSTNAME
+          value: "env-var-pod-ubunutu"
+        - name: DEBUG
+          value: "true"
+      resources:
+        limits:
+          memory: "25Mi"
+          cpu: "100m"

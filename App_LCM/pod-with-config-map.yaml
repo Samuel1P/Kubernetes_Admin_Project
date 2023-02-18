@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-var-pod
+spec:
+  containers:
+    - name: env-var-cont
+      image: ubuntu
+      envFrom:
+        - configMapRef:
+            name: app-configmap
+      resources:
+        limits:
+          memory: "25Mi"
+          cpu: "100m"
