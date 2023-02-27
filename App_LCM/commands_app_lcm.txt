@@ -27,4 +27,25 @@ kubectl create configmap <config-name> --from-file <file-path.properties>
 # create config map declarative
 kubectl create -f <sample-app-config-map.yaml>
 
-# get config maps
+# secrets
+# imperative create secrets
+kubectl create secret generic <secret-name> --from-literal=<KEY>=<value1> --from-literal=<KEY2>=<value2>
+
+# imperative create secrets from file
+kubectl create secret generic <secret-name> --from-file <file-path.properties>
+
+# declarative create secret
+kubectl create -f <sample-secret.yaml>
+
+# get all secrets
+kubectl get secrets
+
+# decribe secret 
+kubectl decribe secrets
+
+# view secret with the encoded text
+kubectl get secrets <secret-name> -o yaml
+
+
+# echo -n root| base64
+# echo -n smiley4u| base64 -d

@@ -45,9 +45,15 @@ kubectl get rs <rs-entity-name> -o yaml
 # get manifest of any k8s object
 kubectl -n <namespace> get <resource type> <resource Name> -o yaml.
 
+# edit running pod
+kubectl edit pod <pods-name>
+
 # replcae a k8s object
 kubectl replace -f <updated-entity-file>.
-# or kubectl edit replicaset
+
+# replcae a k8s object forcefully
+kubectl replace --force -f <updated-entity-file>
+
 
 
 # services
