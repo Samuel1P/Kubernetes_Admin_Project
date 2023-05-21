@@ -30,4 +30,9 @@ kubectl label nodes <node01> <size>=<large>
 
 
 # daemon sets
-k get 
+kubectl get daemonsetsi
+
+
+# static pods config path passed in kubelet
+# default -- pod manifest path = /etc/kubernetes/mainfests
+# staticPodPath in yaml and pass it is path to --config

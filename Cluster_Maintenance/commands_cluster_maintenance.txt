@@ -1,0 +1,20 @@
+# list nodes
+kubectl get nodes
+
+# empty a node for maintenance
+kubectl drain <node-name>
+
+# unschedule a node for future pod hosting
+kubectl cordon <node-name>
+
+# schedule a node for use when it is schedule disabled
+kubectl uncordon <node-name>
+
+
+# view node taints
+kubectl get nodes -o='custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect'
+
+
+
+# node cpu usage
+kubectl top nodes <node-name> # error: Metrics API not available
