@@ -3,6 +3,8 @@ kubectl get nodes
 
 # empty a node for maintenance
 kubectl drain <node-name>
+kubectl drain <node-to-drain> --ignore-daemonsets
+
 
 # unschedule a node for future pod hosting
 kubectl cordon <node-name>
@@ -18,3 +20,4 @@ kubectl get nodes -o='custom-columns=NodeName:.metadata.name,TaintKey:.spec.tain
 
 # node cpu usage
 kubectl top nodes <node-name> # error: Metrics API not available
+

@@ -1,0 +1,31 @@
+# version
+kubeadm version
+
+
+# kubeadm tool upgrade
+apt-mark unhold kubeadm && \
+apt-get update && apt-get install -y kubeadm=1.26.0-00 && \
+apt-mark hold kubeadm
+
+# check upgrade options
+kubeadm upgrade plan
+
+
+# version to upgrade
+sudo kubeadm upgrade apply v1.27.x
+
+
+# upgrade node
+sudo kubeadm upgrade node
+
+
+# upgrdade kubelet & kubectl
+apt-mark unhold kubelet kubectl && \
+apt-get update && apt-get install -y kubelet=1.26.0-00 kubectl=1.26.0-00 && \
+apt-mark hold kubelet kubectl
+
+# restarting kubelet
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+
