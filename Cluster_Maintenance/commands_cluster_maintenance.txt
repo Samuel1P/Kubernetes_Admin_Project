@@ -21,3 +21,37 @@ kubectl get nodes -o='custom-columns=NodeName:.metadata.name,TaintKey:.spec.tain
 # node cpu usage
 kubectl top nodes <node-name> # error: Metrics API not available
 
+
+
+# get all objects manifest
+kubectl get all --all-namespaces -o yaml > all_deploy_services_manifest.yaml
+
+# to set etcdctl to use v3
+export ETCDCTL_API=3
+
+# create snapshot of etcd cluster
+etcdctl snapshot save <snapshot.db> --endpoints=<> --cacert=<> --cert=<> --key=<> 
+
+# check status of backup
+etcdctl snapshot status <snapshot.db>  --endpoints=<> --cacert=<> --cert=<> --key=<> 
+
+# restore cluster from snapshot
+etcdctl snapshot restore <snapshot.db> --data-dir <some-path>
+
+
+# cluster defined in kubectl
+kubectl config get-clusters
+
+# kubectl switch cluster context
+kubectl config use-context <cluster1>
+
+
+# save etcd db in standalone etcd cluster
+ETCDCTL_API=3 etcdctl --endpoints=https://<ip>:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key snapshot save </opt/cluster1.db>
+
+
+# status etcd db in standalone etcd cluster
+ETCDCTL_API=3 etcdctl snapshot status </opt/cluster2.db>  --endpoints=https://192.26.83.18:2379  --cacert=/etc/etcd/pki/ca.pem  --cert=/etc/etcd/pki/etcd.pem --key=/etc/etcd/pki/etcd-key.pem 
+
+# restore etcd db in standalone etcd cluster
+ETCDCTL_API=3 etcdctl snapshot restore /root/cluster2.db --data-dir=/var/lib/etcd-data-new  
