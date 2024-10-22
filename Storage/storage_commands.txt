@@ -1,0 +1,9 @@
+# list pv
+k get pv
+
+# list pvc
+k get pvc
+
+# delete pvc
+# note that pvc delete will be stuck until corresponding pod is deleted
+k delete pvc <name>
