@@ -1,6 +1,6 @@
 #vscode
-/vscode
-*.workspace
+# /vscode
+# *.workspace
 
 # venv
 
@@ -23,4 +23,4 @@ db_dir/
 /**/.idea/*
 
 # course materials
-Course_Material
+# Course_Material
