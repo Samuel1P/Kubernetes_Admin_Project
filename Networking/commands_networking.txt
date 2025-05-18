@@ -1,0 +1,28 @@
+# Shows all network interfaces (like eth0, lo, etc.) and their statuses (up/down). Think of this as listing the available network hardware.
+ip link
+
+# Lists all IP addresses assigned to the interfaces. It shows you your current IP configuration.
+ip addr
+
+# Manually assigns the IP address 192.168.1.10 with subnet mask /24 (or 255.255.255.0) to the eth0 interface.
+ip addr add 192.168.1.10/24 dev eth0
+
+# Displays the current routing table – it shows how your system decides where to send outbound packets.
+ip route
+
+# Adds a static route: packets meant for the 192.168.1.0/24 network should be sent via the gateway 192.168.2.1.
+ip route add 192.168.1.0/24 via 192.168.2.1
+
+# Shows whether IP forwarding is enabled (1) or disabled (0). This is crucial if your system is acting as a router.
+cat /proc/sys/net/ipv4/ip_forward
+
+# Displays the ARP table, which maps IP addresses to MAC addresses of local devices.
+arp
+
+# Lists all listening TCP ports and the processes using them.
+netstat -plnt
+
+p: show process ID/program name
+l: show only listening sockets
+n: show numerical addresses
+
